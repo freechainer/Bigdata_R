@@ -219,3 +219,53 @@ mtcars['gear']
 class(mtcars['gear'])
 factor(mtcars['gear'])
 unique(mtcars['gear'])[,1]
+
+
+airquality
+str(airquality)
+head(airquality)
+TempMax=max(airquality['Temp'])
+subset(airquality, Temp == TempMax)[c('Month','Day')]
+max(subset(airquality, Month == 6)['Wind'])
+
+Temp.7 <- subset(airquality, Month == 7)['Temp']
+sum(Temp.7)/nrow(Temp.7)
+
+subset(airquality, Month == 5)['Ozone']
+
+is.na(subset(airquality, Month == 5)['Ozone'])
+sum(na.omit(subset(airquality, Month == 5)['Ozone']))
+nrow(na.omit(subset(airquality, Month == 5)['Ozone']))
+sum(na.omit(subset(airquality, Month == 5)['Ozone']))/nrow(na.omit(subset(airquality, Month == 5)['Ozone']))
+
+
+nrow(subset(airquality, Ozone > 100))
+
+
+swiss
+str(swiss)
+max(swiss['Agriculture'])
+rownames(subset(swiss, Agriculture==max(swiss['Agriculture'])))
+
+Ca80 <- subset(swiss, Catholic >= 80)
+Ca80['Agriculture']
+
+
+subset(swiss, Examination<20 & Agriculture>50)
+subset(swiss, Examination<20 & Agriculture>50)[c('Agriculture','Examination')]
+
+
+
+st <- data.frame(state.x77)
+class(st)
+
+subset(st, Income >= 5000)[c('Income','Population','Area')]
+rich_state<- subset(st, Income >= 5000)[c('Income','Population','Area')]
+rich_state
+setwd('/Users/heoinhaeng/Desktop/coding/r/bigdata_r/data')
+write.csv(rich_state, "rich_state.csv", row.names = F)
+
+setwd('/Users/heoinhaeng/Desktop/coding/r/bigdata_r/data')
+read.csv('rich_state.csv', header=T)
+ds <- read.csv('rich_state.csv', header=T)
+ds

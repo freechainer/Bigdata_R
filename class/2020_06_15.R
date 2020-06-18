@@ -386,3 +386,173 @@ str(iris)          #데이터셋 요약 정보 보기
 iris[,5]           #품종 데이터 보기 
 unique(iris[,5])
 table(iris[,"Species"])
+
+colSums(iris[,-5])
+colMeans(iris[,-5])
+rowSums(iris[,-5])
+rowMeans(iris[,-5])
+
+z <- matrix(1:20, nrow= 4, ncol = 5)
+z
+t(z)  #전치행렬
+
+iR.1 <- subset(iris, Species == 'setosa')
+iR.2 <- subset(iris, Sepal.Length>5.0 & Sepal.Width>4.0)
+iR.1
+iR.2
+iR.2[,c(2,4)]
+
+a <- matrix(1:20,4,5)
+b <- matrix(21:40,4,5)
+a
+b
+
+2*a
+b-5
+2*a + 3*b
+
+a+b
+b-a
+2*a + 3*b
+
+2*a+7
+
+a <- a*3
+b <- b-5
+a
+b
+
+2*a+7
+
+state.x77
+
+class(iris)
+class(state.x77)
+is.matrix(iris)
+is.data.frame(iris)
+is.matrix(state.x77)
+is.data.frame(state.x77)
+
+head(state.x77)
+
+st <- data.frame(state.x77)
+st
+head(st)
+class(st)
+
+iris.m <- as.matrix(iris[,1:5])
+head(iris.m)
+class(iris.m)
+
+iris[,"Species"]
+iris[,5]
+iris["Species"]
+iris[5]
+iris$Species
+class(iris)
+
+iris.m <- as.matrix(iris[,1:4])
+class(iris.m)
+head(iris.m)
+iris.m[,"Petal.Width"]
+iris.m[,4]
+iris.m["Petal.Width"]
+iris.m[4]
+iris.m$Petal.Width
+
+setwd("/Users/heoinhaeng/Desktop/coding/r/bigdata_r/data")
+air <- read.csv("airquality.csv", header = T)
+head(air)
+
+my.iris <- subset(iris, Species=="setosa")
+my.iris
+head(my.iris)
+write.csv(my.iris, "my_iris.csv", row.names = F)
+
+
+#131페이지 / 1번문제
+m <- c(10,40,60,20)
+f <- c(21,60,70,30)
+score <- cbind(m,f)
+score
+colnames(score) <- c('male','female')
+score
+score[2,]
+score[,'female']
+score[3,2]
+
+# 2번문제
+class(state.x77)
+st <- data.frame(state.x77)
+class(st)
+st      
+
+colnames(st)
+rownames(st)
+dim(st)
+nrow(st)
+ncol(st)
+
+str(st)
+
+rowSums(st)
+rowMeans(st)
+
+colSums(st)
+colMeans(st)
+
+st["Florida",]
+#unique(st['Florida',])
+# table(st['Florida',])
+st['Income']
+st[,'Income']
+
+st['Texas','Area']
+
+st['Ohio',c('Income','Population')]
+pop <- subset(st, Population>=5000)
+pop   
+
+inc <- subset(st, Income>=4500)
+inc
+inc[,c('Population','Income','Area')]
+
+nrow(inc)
+
+st[st[,'']]
+
+a1 <- subset(st, Area >= 100000 & Frost >= 120)
+a1
+
+a2 <- subset(st, Population < 2000 & Murder < 12)
+a2
+
+a3 <- subset(st, Illiteracy >= 2.0)
+colMeans(a3['Income'])
+
+a4 <- subset(st, Illiteracy < 2.0)
+a4.1 <- colMeans(a4['Income'])
+a4.1
+
+a5 <- subset(st, Illiteracy >= 2.0)
+a5.1 <- colMeans(a5['Income'])
+a5.1
+
+a4.1-a5.1
+
+m <- max(st[,"Life.Exp"])
+m
+subset(st, Life.Exp>=m)
+rownames(subset(st, Life.Exp>=m))
+
+max(st["Life.Exp"])
+st==max(st["Life.Exp"])
+s1 <- st==max(st["Life.Exp"])
+class(s1)
+is.vector(s1[,"Life.Exp"])
+st[s1[,"Life.Exp"],]
+rownames(st[s1[,"Life.Exp"],])
+
+st["Pennsylvania","Income"]
+a7 <- subset(st, Income > 4449)
+rownames(a7)

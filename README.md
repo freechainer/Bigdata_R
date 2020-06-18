@@ -1,3 +1,3 @@
-Big Data Project
+Big Data Project with R
 
-- Intelligence Software Program based on Big data Analysis
+- Ministry of Science and Technology (Intelligence Software Program based on Big Data Analysis)

@@ -1,0 +1,1 @@
+boxplot(Petal.Length~Species, data=iris, main="«∞¡æ∫∞ ≤…¿Ÿ¿« ±Ê¿Ã")

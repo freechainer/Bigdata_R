@@ -29,7 +29,9 @@ st[,'Income']
 st['Texas','Area']
 st['Ohio',c('Population','Income')]
 
-st[,'Population']>=5000                        #bool값을 출력하기 
+a <- st[st[,'Population']>=5000,"Population"]
+rownames(a)
+#bool값을 출력하기 
 subset(st, Population>=5000)
 
 income.4500 <- subset(st, Income>=4500)
@@ -145,10 +147,17 @@ condi <- swiss[,'Examination'] < 20 & swiss[,'Agriculture'] < 50
 swiss[condi, c('Examination','Agriculture')]
 
 #.6번
-
+class(state.x77)
+dt <- data.frame(state.x77)
+class(dt)
 condi <- state.x77[,'Income']>=5000
-condi 
+dt[condi,] 
 state.x77[condi, c('Income','Population','Area')]
+
+subset(dt, Income>=5000)[c('Income','Population','Area')]
+a <- subset(dt, Income>=5000)
+a[c('Income','Population','Area')]
+
 setwd("/Users/heoinhaeng/Desktop/coding/r/bigdata_r/data")
 rich.state <- state.x77[condi, c('Income','Population','Area')]
 write.csv(rich.state, 'rich_state.csv', row.names = T)

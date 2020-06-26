@@ -39,5 +39,3 @@ cor(beers, bal)
 
 
 cor(iris[,1:4])
-
-

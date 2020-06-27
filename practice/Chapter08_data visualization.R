@@ -68,3 +68,95 @@ ggplot(df, aes(x=month, y=rain))+
   theme(plot.title = element_text(size = 25, face = 'bold', colour = 'steelblue'))+
   labs(x="월", y="강수량")+
   coord_flip()
+
+library(ggplot2)
+
+ggplot(iris, aes(x = Petal.Length))+
+  geom_histogram(binwidth = 0.5)
+
+library(ggplot2)
+
+ggplot(iris, aes(x=Sepal.Width, fill=Species, color=Species))+
+  geom_histogram(binwidth = 0.5, position = 'dodge')+
+  theme(legend.position = 'top')
+
+library(ggplot2)
+
+ggplot(data = iris, aes(x=Petal.Length, y=Petal.Width))+
+  geom_point()
+
+library(ggplot2)
+
+ggplot(data = iris, aes(x=Petal.Length, y=Petal.Width,
+                        color=Species, shape=Species))+
+  geom_point(size=3)+
+  ggtitle("꽃잎의 길이와 폭")
+  theme(plot.title = element_text(size = 25, face = 'bold', colour = 'steelblue'))
+  
+  
+library(ggplot2)
+  
+ggplot(data = iris, aes(y=Petal.Length))+
+  geom_boxplot(fill='yellow')
+
+
+library(ggplot2)
+ggplot(data = iris, aes(x=Petal.Length, fill=Species))+
+  geom_boxplot()
+
+library(ggplot2)
+year <- 1937:1960
+cnt <- as.vector(airmiles)
+df <- data.frame(year, cnt)
+head(df)
+
+ggplot(data = df, aes(x=year, y=cnt))+
+  geom_line(col='red')
+
+
+
+library(Rtsne)
+library(ggplot2)
+
+ds <- iris[,-5]
+ds
+
+dup <- which(duplicated(ds))
+dup
+ds <- ds[-dup,]
+ds.y <- iris$Species[-dup]
+ds.y
+
+tsne <- Rtsne(ds, dims=2, perplexity=10)
+tsne
+
+df.tsne <- data.frame(tsne$Y)
+head(df.tsne)
+ggplot(df.tsne, aes(x=X1, y=X2, color=ds.y))+
+  geom_point(size=2)
+
+
+
+install.packages(c('rgl','car'))
+library('car')
+library('rgl')
+library('mgcv')
+
+
+tsne <- Rtsne(ds, dims=3, perplexity=10)
+tsne
+
+df.tsne <- data.frame(tsne$Y)
+head(df.tsne)
+
+head(df.tsne)
+scatter3d(x=df.tsne$X1,y=df.tsne$X2, z=df.tsne$X3) 
+
+points <- as.integer(ds.y)
+points
+color <- c('red','green','blue')
+scatter3d(x=df.tsne$X1, y=df.tsne$X2, z=df.tsne$X3,
+          point.col = color[points],
+          surface = FALSE)
+
+

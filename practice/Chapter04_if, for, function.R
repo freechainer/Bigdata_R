@@ -336,3 +336,46 @@ a <- mydiv(20,4)
 b <- mydiv(30,4)
 a+b
 mydiv(mydiv(20,2),5)
+
+
+
+# 5. 조건에 맞는 데이터의 위치 찾기
+score <- c(76, 84, 69, 50, 95, 60, 82, 71, 88, 84)
+score
+which(score==69)
+which(score>=85)
+max(score)
+which.max(score)
+min(score)
+which.min(score)
+
+
+score <- c(76,84,69,50,95,60,82,71,88,84)
+score
+idx <- which(score<=60)
+score[idx] <- 61
+score
+
+idx <- which(score>=80)
+idx
+score.high <- score[idx]
+score.high
+
+score <- c(76,84,69,50,95,60,82,71,88,84)
+idx <- which(score>=80)
+score[idx]
+
+score <- c(76,84,69,50,95,60,82,71,88,84)
+score.high <- subset(score, score>=80)
+score.high
+
+
+idx <- which(iris$Petal.Length>5.0)
+idx
+iris.big <- iris[idx,]
+iris.big
+
+idx <- which(iris[,1:4]>5.0, arr.ind = T)
+idx
+
+

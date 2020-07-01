@@ -249,3 +249,49 @@ mean(mtcars$mpg)
 mean(mtcars[,c('mpg')])
 #(10)
 unique(mtcars$gear)
+
+# 문제. 4
+# (1)
+class(airquality)
+# (2)
+head(airquality)
+# (3)
+airquality[airquality$Temp==max(airquality$Temp),c("Month","Day")]
+subset(airquality, Temp==max(airquality[,'Temp']))[c('Month',"Day")]
+# (4)
+max(airquality[airquality$Month==6,]['Wind'])
+max(subset(airquality, Month==6)[,'Wind'])
+# (5)
+colMeans(airquality[airquality$Month==7,]['Temp']) 
+# (6)
+mean(airquality[airquality$Month==5,][,'Ozone'], na.rm = T)
+mean(airquality[airquality[,'Month']==5,][,'Ozone'], na.rm = T)
+# (7)
+sum(airquality$Ozone>100, na.rm = T)
+nrow(subset(airquality, Ozone>100))
+
+
+# 문제.5
+# (1)
+str(swiss)
+# (2)
+max(swiss$Agriculture)
+rownames(swiss[swiss$Agriculture==max(swiss$Agriculture),])
+# (3)
+swiss[order(swiss$Agriculture, decreasing = T),]
+# (4)      
+swiss[swiss$Catholic >= 80,]['Agriculture']
+#(5)
+swiss[swiss$Examination<20 & swiss$Agriculture<50,][,c('Examination','Agriculture')]
+
+
+# 문제.6
+# (1)
+a <- state.x77[state.x77[,'Income'] >= 5000,][,c('Income','Population','Area')]
+a
+setwd('/Users/heoinhaeng/Desktop/coding/r/bigdata_r/data')
+write.csv(a, "rich_state.csv", row.names = T)
+
+#(2)
+ds <- read.csv('rich_state.csv')
+ds

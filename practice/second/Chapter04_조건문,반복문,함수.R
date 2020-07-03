@@ -239,3 +239,21 @@ which.max(score)
 min(score)
 which.min(score)
 
+
+score <- c(76, 84, 69, 50, 95, 60, 82, 71, 88, 84)
+idx <- which(score<=60)
+score[idx] <- 61
+score
+
+idx <- which(score>=80)
+score.high <- score[idx]
+score.high
+
+
+idx <- which(iris$Sepal.Length>5.0)
+idx
+iris.big <- iris[idx,]
+iris.big
+
+idx <- which(iris[,1:4] > 5.0, arr.ind = T)
+idx

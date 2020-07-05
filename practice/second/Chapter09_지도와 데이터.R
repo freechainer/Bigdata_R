@@ -1,5 +1,5 @@
 library(ggmap)
-register_google(key="AIzaSyC0FW4f4Ie6FUUGphkNL4Ug5G6_cRBfNdw")
+register_google(key="")
 
 gc <- geocode(enc2utf8("유성구"))
 gc
